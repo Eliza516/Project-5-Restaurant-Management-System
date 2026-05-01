@@ -2615,14 +2615,27 @@ SET FOREIGN_KEY_CHECKS = 0;
 
 TRUNCATE TABLE InvoiceItems;
 
+-- Random món ăn 1
 INSERT INTO InvoiceItems (InvoiceID, DishID, Quantity, UnitPrice)
 SELECT InvoiceID, 1, FLOOR(1 + RAND() * 2), 45000 FROM Invoices;
 
+-- Random món ăn 2
 INSERT INTO InvoiceItems (InvoiceID, DishID, Quantity, UnitPrice)
 SELECT InvoiceID, 17, FLOOR(1 + RAND() * 4), 85000 FROM Invoices;
 
+-- Random món ăn 3
 INSERT INTO InvoiceItems (InvoiceID, DishID, Quantity, UnitPrice)
 SELECT InvoiceID, 41, FLOOR(2 + RAND() * 3), 25000 FROM Invoices WHERE InvoiceID % 2 = 0;
+
+-- ==========================================
+--  TÍNH DOANH THU 
+-- ==========================================
+UPDATE Invoices i
+SET SubTotal = (
+    SELECT IFNULL(SUM(LineTotal), 0) 
+    FROM InvoiceItems ii 
+    WHERE ii.InvoiceID = i.InvoiceID
+);
 
 UPDATE Invoices 
 SET DiscountAmount = 0,
