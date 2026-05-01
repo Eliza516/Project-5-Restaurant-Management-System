@@ -47,7 +47,7 @@ Execute the SQL scripts located in the `database/` directory in the following st
 ### 4.2. Application Setup
 Clone the repository and install the required dependencies:
 ```bash
-git clone [https://github.com/Eliza516/Project-5-Restaurant-Management-System.git](https://github.com/YOUR_GITHUB_USERNAME/Project-5-Restaurant-Management-System.git)
+git clone [https://github.com/Eliza516/Project-5-Restaurant-Management-System.git](https://github.com/Eliza516/Project-5-Restaurant-Management-System.git)
 cd Project-5-Restaurant-Management-System
 pip install -r requirements.txt
 ```
